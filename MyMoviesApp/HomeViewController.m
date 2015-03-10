@@ -65,12 +65,14 @@
         [actorsArray addObject:actorObject];
     }
     newMovie.actors = [NSSet setWithArray:actorsArray];
-
+    
     // Save the context.
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"The movie was added to your database" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
     }
 }
 
