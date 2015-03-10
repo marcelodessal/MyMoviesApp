@@ -53,27 +53,7 @@
     
 }
 - (IBAction)addMovie:(id)sender {
-    Movie *newMovie = [NSEntityDescription insertNewObjectForEntityForName:@"Movie" inManagedObjectContext:self.managedObjectContext];
-    newMovie.title = self.titleLbl.text;
-    newMovie.year = [NSNumber numberWithInt:[self.yearLbl.text intValue]];
     
-    NSMutableArray *actorsArray = [NSMutableArray array];
-    for (NSString* actor in self.actors) {
-        Actor *actorObject = [NSEntityDescription insertNewObjectForEntityForName:@"Actor"
-                                                           inManagedObjectContext:self.managedObjectContext];
-        actorObject.name = actor;
-        [actorsArray addObject:actorObject];
-    }
-    newMovie.actors = [NSSet setWithArray:actorsArray];
-    
-    // Save the context.
-    NSError *error = nil;
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"The movie was added to your database" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alert show];
-    }
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
