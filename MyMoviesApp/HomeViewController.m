@@ -43,6 +43,36 @@
     }];
     [self.textField resignFirstResponder];
 }
+- (IBAction)reset:(id)sender {
+    
+    self.textField.text = @"";
+    
+    self.titleLbl.hidden = YES;
+    self.yearLbl.hidden = YES;
+    self.actorsTableView.hidden = YES;
+    
+}
+- (IBAction)addMovie:(id)sender {
+    Movie *newMovie = [NSEntityDescription insertNewObjectForEntityForName:@"Movie" inManagedObjectContext:self.managedObjectContext];
+    newMovie.title = self.titleLbl.text;
+    newMovie.year = [NSNumber numberWithInt:[self.yearLbl.text intValue]];
+    
+    NSMutableArray *actorsArray = [NSMutableArray array];
+    for (NSString* actor in self.actors) {
+        Actor *actorObject = [NSEntityDescription insertNewObjectForEntityForName:@"Actor"
+                                                           inManagedObjectContext:self.managedObjectContext];
+        actorObject.name = actor;
+        [actorsArray addObject:actorObject];
+    }
+    newMovie.actors = [NSSet setWithArray:actorsArray];
+
+    // Save the context.
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
@@ -55,23 +85,18 @@
 
 - (Success)processMovieInfo {
     return ^(NSURLSessionTask *task, id responseObject){
+        __weak typeof(self) weakSelf = self;
         NSDictionary *movieInfo = responseObject;
         
-        self.titleLbl.text = [NSString stringWithFormat:@"Title: %@", [movieInfo objectForKey:@"Title"]];
-        self.yearLbl.text = [NSString stringWithFormat:@"Year: %@", [movieInfo objectForKey:@"Year"]];
+        weakSelf.titleLbl.text = [NSString stringWithFormat:@"Title: %@", [movieInfo objectForKey:@"Title"]];
+        weakSelf.yearLbl.text = [NSString stringWithFormat:@"Year: %@", [movieInfo objectForKey:@"Year"]];
         NSString *actorsString = [movieInfo objectForKey:@"Actors"];
-        self.actors = [actorsString componentsSeparatedByString:@", "];
+        weakSelf.actors = [actorsString componentsSeparatedByString:@", "];
         
-        self.titleLbl.hidden = NO;
-        self.yearLbl.hidden = NO;
-        self.actorsTableView.hidden = NO;
-        [self.actorsTableView reloadData];
-
-        Movie *newMovie = [NSEntityDescription insertNewObjectForEntityForName:@"Movie" inManagedObjectContext:self.managedObjectContext];
-        newMovie.title = self.titleLbl.text;
-        newMovie.year = [NSNumber numberWithInt:[self.yearLbl.text intValue]];
- //       newMovie.actors = [NSSet setWithArray:self.actors];
-        
+        weakSelf.titleLbl.hidden = NO;
+        weakSelf.yearLbl.hidden = NO;
+        weakSelf.actorsTableView.hidden = NO;
+        [weakSelf.actorsTableView reloadData];
     };
 }
 

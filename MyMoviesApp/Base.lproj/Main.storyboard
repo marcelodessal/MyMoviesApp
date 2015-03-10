@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Home View Controller-->
@@ -51,7 +51,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="mg9-44-oQM">
-                                <rect key="frame" x="200" y="200" width="200" height="348"/>
+                                <rect key="frame" x="200" y="200" width="200" height="279"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActorCell" textLabel="tvR-nU-Jq5" style="IBUITableViewCellStyleDefault" id="hZT-oQ-nXW">
@@ -80,24 +80,52 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRL-fG-for">
+                                <rect key="frame" x="200" y="487" width="74" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="74" id="38W-9g-w4I"/>
+                                    <constraint firstAttribute="height" constant="30" id="F5Y-N9-ps4"/>
+                                </constraints>
+                                <state key="normal" title="Add movie">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addMovie:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pYV-Wo-sxA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWX-1W-nbp">
+                                <rect key="frame" x="319" y="487" width="74" height="30"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hfh-bf-S5x"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.84909805231055457" green="0.86027357894139711" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.80702635734020156" green="0.88522077389797982" blue="0.39781264493307117" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mg9-44-oQM" firstAttribute="top" secondItem="lE6-sp-mJZ" secondAttribute="bottom" constant="16" id="1kM-Id-nJ9"/>
                             <constraint firstItem="lE6-sp-mJZ" firstAttribute="width" secondItem="DRW-Dv-Q5t" secondAttribute="width" id="3iP-SK-4NY"/>
                             <constraint firstItem="lE6-sp-mJZ" firstAttribute="centerX" secondItem="mg9-44-oQM" secondAttribute="centerX" id="Aao-g4-8Kj"/>
+                            <constraint firstItem="gWX-1W-nbp" firstAttribute="trailing" secondItem="mg9-44-oQM" secondAttribute="trailing" constant="-7" id="DrQ-0L-Dtc"/>
                             <constraint firstItem="lE6-sp-mJZ" firstAttribute="centerX" secondItem="DRW-Dv-Q5t" secondAttribute="centerX" id="ECj-Oa-t7B"/>
+                            <constraint firstItem="gWX-1W-nbp" firstAttribute="width" secondItem="cRL-fG-for" secondAttribute="width" id="RYQ-Do-WiJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cRL-fG-for" secondAttribute="bottom" constant="39" id="RuS-Tr-awy"/>
                             <constraint firstItem="sF7-2e-Lta" firstAttribute="leading" secondItem="x9z-ch-7mi" secondAttribute="trailing" constant="8" id="VyJ-61-Qgz"/>
                             <constraint firstItem="x9z-ch-7mi" firstAttribute="centerX" secondItem="DRW-Dv-Q5t" secondAttribute="centerX" id="YaR-p4-vVA"/>
                             <constraint firstItem="x9z-ch-7mi" firstAttribute="width" secondItem="DRW-Dv-Q5t" secondAttribute="width" id="Z3B-g5-7Zo"/>
                             <constraint firstItem="x9z-ch-7mi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="43" id="ZAJ-Yx-ogV"/>
+                            <constraint firstItem="gWX-1W-nbp" firstAttribute="height" secondItem="cRL-fG-for" secondAttribute="height" id="bUD-Mn-VPX"/>
+                            <constraint firstItem="cRL-fG-for" firstAttribute="top" secondItem="mg9-44-oQM" secondAttribute="bottom" constant="8" id="c5i-f8-qMb"/>
                             <constraint firstItem="lE6-sp-mJZ" firstAttribute="top" secondItem="DRW-Dv-Q5t" secondAttribute="bottom" constant="20" id="cDb-uf-7A6"/>
                             <constraint firstItem="lE6-sp-mJZ" firstAttribute="height" secondItem="DRW-Dv-Q5t" secondAttribute="height" id="cGR-4h-P3s"/>
                             <constraint firstItem="DRW-Dv-Q5t" firstAttribute="top" secondItem="x9z-ch-7mi" secondAttribute="bottom" constant="29" id="d2b-dB-eF0"/>
                             <constraint firstItem="sF7-2e-Lta" firstAttribute="centerY" secondItem="x9z-ch-7mi" secondAttribute="centerY" id="dgx-5a-Efo"/>
                             <constraint firstItem="lE6-sp-mJZ" firstAttribute="width" secondItem="mg9-44-oQM" secondAttribute="width" id="ght-nQ-x0C"/>
                             <constraint firstAttribute="centerX" secondItem="x9z-ch-7mi" secondAttribute="centerX" id="qE4-zm-LKM"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mg9-44-oQM" secondAttribute="bottom" constant="8" id="voJ-w0-mgN"/>
+                            <constraint firstItem="gWX-1W-nbp" firstAttribute="bottom" secondItem="cRL-fG-for" secondAttribute="bottom" id="ss2-kv-bFV"/>
+                            <constraint firstItem="mg9-44-oQM" firstAttribute="leading" secondItem="cRL-fG-for" secondAttribute="leading" id="vAC-O5-IRr"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -111,6 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="274" y="266"/>
         </scene>
     </scenes>
     <resources>

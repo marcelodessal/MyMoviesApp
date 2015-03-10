@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A032BC51AAF6058003C2E0A /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A032BC41AAF6058003C2E0A /* Movie.m */; };
+		3A032BC81AAF6058003C2E0A /* Actor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A032BC71AAF6058003C2E0A /* Actor.m */; };
 		3A4689D91AAE5AE300340F10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4689D81AAE5AE300340F10 /* main.m */; };
 		3A4689DC1AAE5AE300340F10 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4689DB1AAE5AE300340F10 /* AppDelegate.m */; };
 		3A4689DF1AAE5AE300340F10 /* MyMoviesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A4689DD1AAE5AE300340F10 /* MyMoviesApp.xcdatamodeld */; };
@@ -16,8 +18,6 @@
 		3A4689F61AAE5AE300340F10 /* MyMoviesAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4689F51AAE5AE300340F10 /* MyMoviesAppTests.m */; };
 		3A468A011AAE5EEC00340F10 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A468A001AAE5EEC00340F10 /* HomeViewController.m */; };
 		3A468A041AAE82C200340F10 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A468A031AAE82C200340F10 /* NetworkManager.m */; };
-		3A468A071AAF0D0800340F10 /* Actor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A468A061AAF0D0800340F10 /* Actor.m */; };
-		3A468A0A1AAF0D0800340F10 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A468A091AAF0D0800340F10 /* Movie.m */; };
 		9F4F78B993901D6E35B4E0C5 /* libPods-MyMoviesApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0A5CC9C399576A7F69FF35 /* libPods-MyMoviesApp.a */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +33,10 @@
 
 /* Begin PBXFileReference section */
 		0C0A5CC9C399576A7F69FF35 /* libPods-MyMoviesApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyMoviesApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A032BC31AAF6058003C2E0A /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		3A032BC41AAF6058003C2E0A /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		3A032BC61AAF6058003C2E0A /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
+		3A032BC71AAF6058003C2E0A /* Actor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actor.m; sourceTree = "<group>"; };
 		3A4689D31AAE5AE300340F10 /* MyMoviesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMoviesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4689D71AAE5AE300340F10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A4689D81AAE5AE300340F10 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -49,10 +53,6 @@
 		3A468A001AAE5EEC00340F10 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		3A468A021AAE82C200340F10 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		3A468A031AAE82C200340F10 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
-		3A468A051AAF0D0800340F10 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Actor.h; path = Model/Actor.h; sourceTree = "<group>"; };
-		3A468A061AAF0D0800340F10 /* Actor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Actor.m; path = Model/Actor.m; sourceTree = "<group>"; };
-		3A468A081AAF0D0800340F10 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Movie.h; path = Model/Movie.h; sourceTree = "<group>"; };
-		3A468A091AAF0D0800340F10 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Movie.m; path = Model/Movie.m; sourceTree = "<group>"; };
 		CD5987AB2A69E046E3AB8818 /* Pods-MyMoviesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMoviesApp/Pods-MyMoviesApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F9BFB3BDF8025E80947E5025 /* Pods-MyMoviesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMoviesApp/Pods-MyMoviesApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,10 +152,10 @@
 		3A468A0B1AAF0D1200340F10 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3A468A081AAF0D0800340F10 /* Movie.h */,
-				3A468A091AAF0D0800340F10 /* Movie.m */,
-				3A468A051AAF0D0800340F10 /* Actor.h */,
-				3A468A061AAF0D0800340F10 /* Actor.m */,
+				3A032BC61AAF6058003C2E0A /* Actor.h */,
+				3A032BC71AAF6058003C2E0A /* Actor.m */,
+				3A032BC31AAF6058003C2E0A /* Movie.h */,
+				3A032BC41AAF6058003C2E0A /* Movie.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -304,12 +304,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A032BC51AAF6058003C2E0A /* Movie.m in Sources */,
 				3A4689DC1AAE5AE300340F10 /* AppDelegate.m in Sources */,
 				3A4689DF1AAE5AE300340F10 /* MyMoviesApp.xcdatamodeld in Sources */,
-				3A468A0A1AAF0D0800340F10 /* Movie.m in Sources */,
 				3A4689D91AAE5AE300340F10 /* main.m in Sources */,
-				3A468A071AAF0D0800340F10 /* Actor.m in Sources */,
 				3A468A041AAE82C200340F10 /* NetworkManager.m in Sources */,
+				3A032BC81AAF6058003C2E0A /* Actor.m in Sources */,
 				3A468A011AAE5EEC00340F10 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

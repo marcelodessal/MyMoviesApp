@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Actor;
 
 @interface Movie : NSManagedObject
 
@@ -20,8 +19,8 @@
 
 @interface Movie (CoreDataGeneratedAccessors)
 
-- (void)addActorsObject:(Actor *)value;
-- (void)removeActorsObject:(Actor *)value;
+- (void)addActorsObject:(NSManagedObject *)value;
+- (void)removeActorsObject:(NSManagedObject *)value;
 - (void)addActors:(NSSet *)values;
 - (void)removeActors:(NSSet *)values;
 

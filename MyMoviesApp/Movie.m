@@ -1,18 +1,18 @@
 //
-//  Actor.m
+//  Movie.m
 //  MyMoviesApp
 //
 //  Created by Marcelo Dessal on 3/10/15.
 //  Copyright (c) 2015 Marcelo Dessal. All rights reserved.
 //
 
-#import "Actor.h"
+#import "Movie.h"
 
 
-@implementation Actor
+@implementation Movie
 
-@dynamic firstName;
-@dynamic lastName;
-@dynamic movies;
+@dynamic title;
+@dynamic year;
+@dynamic actors;
 
 @end
