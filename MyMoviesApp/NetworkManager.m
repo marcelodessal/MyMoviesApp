@@ -33,7 +33,8 @@ NSString* const kBaseURLString = @"http://www.omdbapi.com";
 }
 
 -(void)getMovieInfo:(NSString *)movie sucsess:(Success)success failure:(Failure)failure {
-    NSString *URLString = [NSString stringWithFormat:@"/?t=%@&y=&plot=short&r=json", movie];
+    NSString *movieString = [movie stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    NSString *URLString = [NSString stringWithFormat:@"/?t=%@&y=&plot=short&r=json", movieString];
     
     [self GET:URLString parameters:nil
       success:success

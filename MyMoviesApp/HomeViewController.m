@@ -14,6 +14,10 @@
 @interface HomeViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UILabel *titleLbl;
+@property (weak, nonatomic) IBOutlet UILabel *yearLbl;
+@property (weak, nonatomic) IBOutlet UITableView *actorsTableView;
+@property (strong, nonatomic) NSArray *actors;
 
 @end
 
@@ -22,6 +26,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.titleLbl.hidden = YES;
+    self.yearLbl.hidden = YES;
+    self.actorsTableView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,15 +57,48 @@
     return ^(NSURLSessionTask *task, id responseObject){
         NSDictionary *movieInfo = responseObject;
         
-        Movie *newMovie = [NSEntityDescription insertNewObjectForEntityForName:@"Movie" inManagedObjectContext:self.managedObjectContext];
-        newMovie.title = [movieInfo objectForKey:@"Title"];
-        newMovie.year = [NSNumber numberWithInt:[[movieInfo objectForKey:@"Year"] intValue]];
-        
+        self.titleLbl.text = [NSString stringWithFormat:@"Title: %@", [movieInfo objectForKey:@"Title"]];
+        self.yearLbl.text = [NSString stringWithFormat:@"Year: %@", [movieInfo objectForKey:@"Year"]];
         NSString *actorsString = [movieInfo objectForKey:@"Actors"];
-        NSArray *actors = [actorsString componentsSeparatedByString:@", "];
-        newMovie.actors = [NSSet setWithArray:actors];
+        self.actors = [actorsString componentsSeparatedByString:@", "];
+        
+        self.titleLbl.hidden = NO;
+        self.yearLbl.hidden = NO;
+        self.actorsTableView.hidden = NO;
+        [self.actorsTableView reloadData];
+
+        Movie *newMovie = [NSEntityDescription insertNewObjectForEntityForName:@"Movie" inManagedObjectContext:self.managedObjectContext];
+        newMovie.title = self.titleLbl.text;
+        newMovie.year = [NSNumber numberWithInt:[self.yearLbl.text intValue]];
+ //       newMovie.actors = [NSSet setWithArray:self.actors];
+        
     };
 }
+
+
+#pragma mark - TableViewDelegate
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.actors.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"Actors";
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"ActorCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    cell.textLabel.text = self.actors[indexPath.row];
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 
 /*
 #pragma mark - Navigation
