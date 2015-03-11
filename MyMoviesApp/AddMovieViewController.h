@@ -1,5 +1,5 @@
 //
-//  HomeViewController.h
+//  AddMovieViewController.h
 //  MyMoviesApp
 //
 //  Created by Marcelo Dessal on 3/9/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface AddMovieViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong,nonatomic) NSManagedObjectContext *managedObjectContext;
 

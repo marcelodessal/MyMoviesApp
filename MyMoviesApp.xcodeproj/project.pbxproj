@@ -16,8 +16,11 @@
 		3A4689E71AAE5AE300340F10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A4689E61AAE5AE300340F10 /* Images.xcassets */; };
 		3A4689EA1AAE5AE300340F10 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4689E81AAE5AE300340F10 /* LaunchScreen.xib */; };
 		3A4689F61AAE5AE300340F10 /* MyMoviesAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4689F51AAE5AE300340F10 /* MyMoviesAppTests.m */; };
-		3A468A011AAE5EEC00340F10 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A468A001AAE5EEC00340F10 /* HomeViewController.m */; };
+		3A468A011AAE5EEC00340F10 /* AddMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A468A001AAE5EEC00340F10 /* AddMovieViewController.m */; };
 		3A468A041AAE82C200340F10 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A468A031AAE82C200340F10 /* NetworkManager.m */; };
+		3AD473781AAFD39500CF1E67 /* MyMoviesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD473771AAFD39500CF1E67 /* MyMoviesTableViewController.m */; };
+		3AD4737B1AAFD3E500CF1E67 /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4737A1AAFD3E500CF1E67 /* MovieDetailViewController.m */; };
+		3AD473801AB078A300CF1E67 /* PersistanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4737F1AB078A300CF1E67 /* PersistanceManager.m */; };
 		9F4F78B993901D6E35B4E0C5 /* libPods-MyMoviesApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0A5CC9C399576A7F69FF35 /* libPods-MyMoviesApp.a */; };
 /* End PBXBuildFile section */
 
@@ -49,10 +52,16 @@
 		3A4689EF1AAE5AE300340F10 /* MyMoviesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMoviesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4689F41AAE5AE300340F10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A4689F51AAE5AE300340F10 /* MyMoviesAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMoviesAppTests.m; sourceTree = "<group>"; };
-		3A4689FF1AAE5EEC00340F10 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		3A468A001AAE5EEC00340F10 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		3A4689FF1AAE5EEC00340F10 /* AddMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMovieViewController.h; sourceTree = "<group>"; };
+		3A468A001AAE5EEC00340F10 /* AddMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMovieViewController.m; sourceTree = "<group>"; };
 		3A468A021AAE82C200340F10 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		3A468A031AAE82C200340F10 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		3AD473761AAFD39500CF1E67 /* MyMoviesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMoviesTableViewController.h; sourceTree = "<group>"; };
+		3AD473771AAFD39500CF1E67 /* MyMoviesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMoviesTableViewController.m; sourceTree = "<group>"; };
+		3AD473791AAFD3E500CF1E67 /* MovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailViewController.h; sourceTree = "<group>"; };
+		3AD4737A1AAFD3E500CF1E67 /* MovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailViewController.m; sourceTree = "<group>"; };
+		3AD4737E1AB078A300CF1E67 /* PersistanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistanceManager.h; sourceTree = "<group>"; };
+		3AD4737F1AB078A300CF1E67 /* PersistanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistanceManager.m; sourceTree = "<group>"; };
 		CD5987AB2A69E046E3AB8818 /* Pods-MyMoviesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMoviesApp/Pods-MyMoviesApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F9BFB3BDF8025E80947E5025 /* Pods-MyMoviesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMoviesApp/Pods-MyMoviesApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,10 +117,16 @@
 			isa = PBXGroup;
 			children = (
 				3A468A0B1AAF0D1200340F10 /* Model */,
-				3A4689FF1AAE5EEC00340F10 /* HomeViewController.h */,
-				3A468A001AAE5EEC00340F10 /* HomeViewController.m */,
+				3AD473761AAFD39500CF1E67 /* MyMoviesTableViewController.h */,
+				3AD473771AAFD39500CF1E67 /* MyMoviesTableViewController.m */,
+				3A4689FF1AAE5EEC00340F10 /* AddMovieViewController.h */,
+				3A468A001AAE5EEC00340F10 /* AddMovieViewController.m */,
+				3AD473791AAFD3E500CF1E67 /* MovieDetailViewController.h */,
+				3AD4737A1AAFD3E500CF1E67 /* MovieDetailViewController.m */,
 				3A468A021AAE82C200340F10 /* NetworkManager.h */,
 				3A468A031AAE82C200340F10 /* NetworkManager.m */,
+				3AD4737E1AB078A300CF1E67 /* PersistanceManager.h */,
+				3AD4737F1AB078A300CF1E67 /* PersistanceManager.m */,
 				3A4689DA1AAE5AE300340F10 /* AppDelegate.h */,
 				3A4689DB1AAE5AE300340F10 /* AppDelegate.m */,
 				3A4689E31AAE5AE300340F10 /* Main.storyboard */,
@@ -304,13 +319,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AD473781AAFD39500CF1E67 /* MyMoviesTableViewController.m in Sources */,
 				3A032BC51AAF6058003C2E0A /* Movie.m in Sources */,
 				3A4689DC1AAE5AE300340F10 /* AppDelegate.m in Sources */,
 				3A4689DF1AAE5AE300340F10 /* MyMoviesApp.xcdatamodeld in Sources */,
 				3A4689D91AAE5AE300340F10 /* main.m in Sources */,
+				3AD473801AB078A300CF1E67 /* PersistanceManager.m in Sources */,
 				3A468A041AAE82C200340F10 /* NetworkManager.m in Sources */,
+				3AD4737B1AAFD3E500CF1E67 /* MovieDetailViewController.m in Sources */,
 				3A032BC81AAF6058003C2E0A /* Actor.m in Sources */,
-				3A468A011AAE5EEC00340F10 /* HomeViewController.m in Sources */,
+				3A468A011AAE5EEC00340F10 /* AddMovieViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
