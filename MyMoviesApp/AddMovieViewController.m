@@ -30,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self reset:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,8 +58,6 @@
     self.castTextView.text = @"";
     self.plotTextView.text = @"";
     
-    [self.resetBtn setEnabled:NO];
-    [self.form setHidden:YES];
 }
 
 - (IBAction)save:(UIBarButtonItem *)sender {
