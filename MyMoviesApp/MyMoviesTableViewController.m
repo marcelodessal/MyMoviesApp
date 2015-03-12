@@ -48,9 +48,9 @@
     [[self persistanceManager] setupCoreDataStackWithCompletionHandler:^(BOOL suceeded, NSError *error) {
         if (suceeded) {
             [[[self navigationItem] rightBarButtonItem] setEnabled:YES];
-            [self addMovies];
+  //          [self addMovies];
             [self fetchedResultsController];
-            [self.tableView reloadData];
+  //          [self.tableView reloadData];
         } else {
             NSLog(@"Core Data stack setup failed.");
         }
@@ -75,7 +75,9 @@
         NSArray *movieList = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 
         for (NSDictionary* item in movieList) {
-            Movie *newMovie = [[Movie alloc] initWithEntity:[NSEntityDescription entityForName:@"Movie" inManagedObjectContext:[[self persistanceManager] mainThreadManagedObjectContext]] insertIntoManagedObjectContext:[[self persistanceManager] mainThreadManagedObjectContext]];
+            Movie *newMovie = [[Movie alloc] initWithEntity:[NSEntityDescription entityForName:@"Movie"
+                                                                        inManagedObjectContext:batchAddContext]
+                             insertIntoManagedObjectContext:batchAddContext];
             
             newMovie.movieTitle = [item objectForKey:@"title"];
             newMovie.releaseYear = [item objectForKey:@"year"];
@@ -85,11 +87,9 @@
             NSArray *actorsArray = [[item objectForKey:@"actors"] componentsSeparatedByString:@", "];
             
             for (NSString* actor in actorsArray) {
-                NSEntityDescription *entity = [NSEntityDescription entityForName:@"Actor"
-                                                          inManagedObjectContext:[[self persistanceManager] mainThreadManagedObjectContext]];
-                
-                Actor *newActor = [[Actor alloc] initWithEntity:entity
-                                 insertIntoManagedObjectContext:[[self persistanceManager] mainThreadManagedObjectContext]];
+                Actor *newActor = [[Actor alloc] initWithEntity:[NSEntityDescription entityForName:@"Actor"
+                                                                            inManagedObjectContext:batchAddContext]
+                                 insertIntoManagedObjectContext:batchAddContext];
                 
                 newActor.name = actor;
                 [actors addObject:newActor];
