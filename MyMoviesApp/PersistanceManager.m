@@ -63,6 +63,7 @@
             });
         }
         storeURL = [storeURL URLByAppendingPathComponent:@"MyMoviesApp.sqlite"];
+        NSLog(storeURL.description, nil);
         
         NSDictionary *options = @{ NSMigratePersistentStoresAutomaticallyOption: @YES, NSInferMappingModelAutomaticallyOption: @YES };
         NSPersistentStore *store = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error];

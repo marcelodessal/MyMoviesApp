@@ -30,6 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self.findMovie becomeFirstResponder];
     [self.form setHidden:YES];
     
     [self reset:nil];
@@ -91,6 +92,9 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField.tag == 0) {
+        [self searchMovie:textField];
+    }
     [textField resignFirstResponder];
     return YES;
 }
@@ -105,8 +109,8 @@
         weakSelf.castTextView.text = [movieInfo objectForKey:@"Actors"];
         weakSelf.plotTextView.text = [movieInfo objectForKey:@"Plot"];
 
-        [weakSelf.resetBtn setEnabled:NO];
-        [weakSelf.form setHidden:YES];
+        [weakSelf.resetBtn setEnabled:YES];
+        [weakSelf.form setHidden:NO];
     };
 }
 

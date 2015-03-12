@@ -48,9 +48,9 @@
     [[self persistanceManager] setupCoreDataStackWithCompletionHandler:^(BOOL suceeded, NSError *error) {
         if (suceeded) {
             [[[self navigationItem] rightBarButtonItem] setEnabled:YES];
-  //          [self addMovies];
+    //        [self addMovies];
             [self fetchedResultsController];
-  //          [self.tableView reloadData];
+//            [self.tableView reloadData];
         } else {
             NSLog(@"Core Data stack setup failed.");
         }
