@@ -122,6 +122,12 @@
 }
 */
 
+#pragma mark - Table view delegate
+
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+//}
+
 #pragma mark - NSFetchedResultsControllerDelegate Methods
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
@@ -197,7 +203,8 @@
         
     } else if ([segue.identifier isEqualToString:@"movieDetail"]) {
         
-//        MovieDetailViewController *controller = [segue destinationViewController];
+        MovieDetailViewController *controller = [segue destinationViewController];
+        controller.movie = [[self fetchedResultsController] objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
     }
     
 }

@@ -7,9 +7,13 @@
 //
 
 #import "MovieDetailViewController.h"
+#import "Actor.h"
 
 @interface MovieDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *titleAndYearLbl;
+@property (weak, nonatomic) IBOutlet UILabel *castLbl;
+@property (weak, nonatomic) IBOutlet UITextView *PlotTextView;
 
 
 @end
@@ -19,6 +23,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.titleAndYearLbl.text = [NSString stringWithFormat:@"%@ (%@)", self.movie.movieTitle, self.movie.releaseYear];
+    NSMutableArray *castArray = [[NSMutableArray alloc] init];
+    for (Actor* actor in self.movie.actors) {
+        [castArray addObject:actor.name];
+    }
+    self.castLbl.text = [[castArray valueForKey:@"description"] componentsJoinedByString:@", "];
+    self.PlotTextView.text = self.movie.plot;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -50,7 +50,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ew-DD-VcQ">
                                         <rect key="frame" x="68" y="38" width="461" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                                         <connections>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="RXa-tP-uWy"/>
                                         </connections>
@@ -262,8 +262,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2vT-Qd-mdY">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vT-Qd-mdY">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="kCG-eO-zhp"/>
+                                </constraints>
                                 <items>
                                     <navigationItem title="Movie Detail" id="Xt7-u6-yLj">
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="GSH-aY-AUf">
@@ -274,13 +277,64 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title (year)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbV-eW-DIe">
+                                <rect key="frame" x="150" y="104" width="300" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="U2f-Jw-tok"/>
+                                    <constraint firstAttribute="height" constant="38" id="xxQ-vr-eyV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDR-yG-bAc">
+                                <rect key="frame" x="150" y="174" width="300" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="CYp-jF-dQ4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xek-8e-UWQ">
+                                <rect key="frame" x="150" y="236" width="300" height="344"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JDR-yG-bAc" firstAttribute="centerX" secondItem="IbV-eW-DIe" secondAttribute="centerX" id="6qk-CX-fZW"/>
+                            <constraint firstItem="JDR-yG-bAc" firstAttribute="centerX" secondItem="xek-8e-UWQ" secondAttribute="centerX" id="HuV-cJ-QYV"/>
+                            <constraint firstItem="JDR-yG-bAc" firstAttribute="width" secondItem="xek-8e-UWQ" secondAttribute="width" id="SUk-e6-iy6"/>
+                            <constraint firstItem="JDR-yG-bAc" firstAttribute="centerY" secondItem="xek-8e-UWQ" secondAttribute="centerY" constant="-212" id="WZt-lP-8XZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2vT-Qd-mdY" secondAttribute="trailing" constant="-16" id="Wv0-Kg-x2y"/>
+                            <constraint firstItem="2vT-Qd-mdY" firstAttribute="top" secondItem="jKo-VH-N3W" secondAttribute="bottom" id="Y04-6q-lNB"/>
+                            <constraint firstItem="NTI-zf-qhX" firstAttribute="top" secondItem="xek-8e-UWQ" secondAttribute="bottom" constant="20" id="Zb1-RE-RIl"/>
+                            <constraint firstItem="JDR-yG-bAc" firstAttribute="width" secondItem="IbV-eW-DIe" secondAttribute="width" id="fIu-og-PWZ"/>
+                            <constraint firstItem="2vT-Qd-mdY" firstAttribute="leading" secondItem="5qj-Y5-uOY" secondAttribute="leadingMargin" constant="-16" id="hvQ-Dg-NvQ"/>
+                            <constraint firstItem="JDR-yG-bAc" firstAttribute="top" secondItem="IbV-eW-DIe" secondAttribute="bottom" constant="32" id="s3Y-rk-Cjm"/>
+                            <constraint firstAttribute="centerX" secondItem="IbV-eW-DIe" secondAttribute="centerX" id="sAz-Ld-bhW"/>
+                            <constraint firstItem="xek-8e-UWQ" firstAttribute="top" secondItem="JDR-yG-bAc" secondAttribute="bottom" constant="18" id="to6-il-5bq"/>
+                            <constraint firstItem="IbV-eW-DIe" firstAttribute="top" secondItem="jKo-VH-N3W" secondAttribute="bottom" constant="84" id="z3Y-ua-6wW"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WZt-lP-8XZ"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="PlotTextView" destination="xek-8e-UWQ" id="cVB-ap-KRi"/>
+                        <outlet property="castLbl" destination="JDR-yG-bAc" id="Qbm-KB-NDA"/>
+                        <outlet property="titleAndYearLbl" destination="IbV-eW-DIe" id="BbO-R0-3yH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ya-CV-u83" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1779" y="974"/>
+            <point key="canvasLocation" x="1898" y="974"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aOa-4a-uFw">

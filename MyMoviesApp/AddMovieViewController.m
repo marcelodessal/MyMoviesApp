@@ -31,8 +31,8 @@
     // Do any additional setup after loading the view.
     
     [self reset:nil];
-    [self.castTextView setCustomBorder];
-    [self.plotTextView setCustomBorder];
+    [self.castTextView setBorderWithColor:[[[UIColor lightGrayColor] colorWithAlphaComponent:0.3] CGColor]];
+    [self.plotTextView setBorderWithColor:[[[UIColor lightGrayColor] colorWithAlphaComponent:0.3] CGColor]];
     
 }
 

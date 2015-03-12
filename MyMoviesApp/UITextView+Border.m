@@ -10,12 +10,15 @@
 
 @implementation UITextView (Border)
 
-- (void)setCustomBorder {
-    self.layer.borderColor = [[[UIColor lightGrayColor] colorWithAlphaComponent:0.3] CGColor];
+- (void)setBorder {
     self.layer.borderWidth = 1.0f;
     self.layer.cornerRadius = 8.0f;
     self.layer.masksToBounds = YES;
-    
+}
+
+- (void)setBorderWithColor:(CGColorRef)color {
+    [self setBorder];
+    self.layer.borderColor = color;
 }
 
 @end

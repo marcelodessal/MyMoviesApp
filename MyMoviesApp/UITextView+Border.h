@@ -10,6 +10,7 @@
 
 @interface UITextView (Border)
 
-- (void)setCustomBorder;
+- (void)setBorder;
+- (void)setBorderWithColor:(CGColorRef)color;
 
 @end
