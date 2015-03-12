@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef void(^OTSDatabaseManagerStackSetupCompletionHandler)(BOOL suceeded, NSError *error);
-typedef void(^OTSDatabaseManagerSaveCompletionHandler)(BOOL suceeded, NSError *error);
+typedef void(^PersistanceManagerStackSetupCompletionHandler)(BOOL suceeded, NSError *error);
+typedef void(^PersistanceManagerSaveCompletionHandler)(BOOL suceeded, NSError *error);
 
 @interface PersistanceManager : NSObject
 
 @property (strong, nonatomic, readonly) NSManagedObjectContext *mainThreadManagedObjectContext;
 
-- (void)setupCoreDataStackWithCompletionHandler:(OTSDatabaseManagerStackSetupCompletionHandler)handler;
-- (void)saveDataWithCompletionHandler:(OTSDatabaseManagerSaveCompletionHandler)handler;
+- (void)setupCoreDataStackWithCompletionHandler:(PersistanceManagerStackSetupCompletionHandler)handler;
+- (void)saveDataWithCompletionHandler:(PersistanceManagerSaveCompletionHandler)handler;
 
 @end

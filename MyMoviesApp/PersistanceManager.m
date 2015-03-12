@@ -18,7 +18,7 @@
 
 @implementation PersistanceManager
 
-- (void)setupCoreDataStackWithCompletionHandler:(OTSDatabaseManagerStackSetupCompletionHandler)handler {
+- (void)setupCoreDataStackWithCompletionHandler:(PersistanceManagerStackSetupCompletionHandler)handler {
     if ([self saveManagedObjectContext]) return;
     
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"MyMoviesApp" withExtension:@"momd"];
@@ -80,7 +80,7 @@
     });
 }
 
-- (void)saveDataWithCompletionHandler:(OTSDatabaseManagerSaveCompletionHandler)handler
+- (void)saveDataWithCompletionHandler:(PersistanceManagerSaveCompletionHandler)handler
 {
     if (![NSThread isMainThread]) { //Always start from the main thread
         dispatch_sync(dispatch_get_main_queue(), ^{

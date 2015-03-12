@@ -30,6 +30,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self.form setHidden:YES];
+    
     [self reset:nil];
     [self.castTextView setBorderWithColor:[[[UIColor lightGrayColor] colorWithAlphaComponent:0.3] CGColor]];
     [self.plotTextView setBorderWithColor:[[[UIColor lightGrayColor] colorWithAlphaComponent:0.3] CGColor]];
@@ -45,10 +47,10 @@
     [[NetworkManager sharedInstance] getMovieInfo:self.findMovie.text sucsess:[self processMovieInfo] failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"Error: %@", error.localizedDescription);
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:@"Cannot connect to server. Try again later"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles: nil];
+                                                        message:@"The server is not responding. Do you want to load data manually?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles: @"Yes", nil];
         [alert show];
     }];
 }
@@ -64,9 +66,18 @@
 }
 
 - (IBAction)save:(UIBarButtonItem *)sender {
+    if (![self.movieTitle.text isEqualToString:@""] && ![self.releaseYear.text isEqualToString:@""]) {
+        [self addMovie];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:@"Movie title and year are mandatory!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
     
-    [self addMovie];
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)cancel:(UIBarButtonItem *)sender {
@@ -80,6 +91,7 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
     return YES;
 }
 
@@ -96,6 +108,22 @@
         [weakSelf.resetBtn setEnabled:NO];
         [weakSelf.form setHidden:YES];
     };
+}
+
+#pragma mark - Alert view delegate
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            [self cancel:nil];
+            break;
+        case 1:
+            [self.form setHidden:NO];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 

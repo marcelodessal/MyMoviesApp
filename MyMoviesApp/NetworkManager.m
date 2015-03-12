@@ -20,14 +20,19 @@ NSString* const kBaseURLString = @"http://www.omdbapi.com";
         // Network activity indicator manager setup
         [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
         
+        // Session configuration setup
+        NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        sessionConfiguration.timeoutIntervalForRequest = 10.0f;
+        
         // Initialize the session
         NSURL *baseURL = [NSURL URLWithString:kBaseURLString];
-        _sharedInstance = [[NetworkManager alloc] initWithBaseURL:baseURL];
+        _sharedInstance = [[NetworkManager alloc] initWithBaseURL:baseURL sessionConfiguration:sessionConfiguration];
+        
+        //Setup a default JSONSerializer for all request/responses.
+        _sharedInstance.responseSerializer = [AFJSONResponseSerializer serializer];
+        _sharedInstance.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
         
     });
-    
-    _sharedInstance.responseSerializer = [AFJSONResponseSerializer serializer];
-    _sharedInstance.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
     return _sharedInstance;
 }

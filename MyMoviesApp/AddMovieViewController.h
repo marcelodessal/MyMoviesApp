@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PersistanceManager.h"
 
-@interface AddMovieViewController : UIViewController <UITextFieldDelegate>
+@interface AddMovieViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (strong,nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) PersistanceManager *persistanceManager;
