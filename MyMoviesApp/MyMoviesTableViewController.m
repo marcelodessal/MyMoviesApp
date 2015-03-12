@@ -48,11 +48,14 @@
     [[self persistanceManager] setupCoreDataStackWithCompletionHandler:^(BOOL suceeded, NSError *error) {
         if (suceeded) {
             [[[self navigationItem] rightBarButtonItem] setEnabled:YES];
+            [self addMovies];
             [self fetchedResultsController];
+            [self.tableView reloadData];
         } else {
             NSLog(@"Core Data stack setup failed.");
         }
     }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,6 +63,57 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - Private methods
+
+- (void)addMovies {
+    NSManagedObjectContext *batchAddContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    [batchAddContext setParentContext:[[self persistanceManager] mainThreadManagedObjectContext]];
+    [batchAddContext performBlock:^{
+        NSURL *url = [[NSBundle mainBundle] URLForResource:@"movies" withExtension:@"json"];
+        NSData *data = [[NSData alloc] initWithContentsOfURL:url];
+        NSArray *movieList = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+
+        for (NSDictionary* item in movieList) {
+            Movie *newMovie = [[Movie alloc] initWithEntity:[NSEntityDescription entityForName:@"Movie" inManagedObjectContext:[[self persistanceManager] mainThreadManagedObjectContext]] insertIntoManagedObjectContext:[[self persistanceManager] mainThreadManagedObjectContext]];
+            
+            newMovie.movieTitle = [item objectForKey:@"title"];
+            newMovie.releaseYear = [item objectForKey:@"year"];
+            newMovie.plot = [item objectForKey:@"plot"];
+            
+            NSMutableArray *actors = [[NSMutableArray alloc] init];
+            NSArray *actorsArray = [[item objectForKey:@"actors"] componentsSeparatedByString:@", "];
+            
+            for (NSString* actor in actorsArray) {
+                NSEntityDescription *entity = [NSEntityDescription entityForName:@"Actor"
+                                                          inManagedObjectContext:[[self persistanceManager] mainThreadManagedObjectContext]];
+                
+                Actor *newActor = [[Actor alloc] initWithEntity:entity
+                                 insertIntoManagedObjectContext:[[self persistanceManager] mainThreadManagedObjectContext]];
+                
+                newActor.name = actor;
+                [actors addObject:newActor];
+            }
+            
+            newMovie.actors = [NSOrderedSet orderedSetWithArray:actors];
+
+        }
+
+        // Save the batchAddContext which pushes the items onto the main thread context
+        NSError *error;
+        if (![batchAddContext save:&error]) {
+            NSLog(@"Unable to save batch added items: %@", [error localizedDescription]);
+            return;
+        }
+        
+        // Save the main thead context... saveDataWithCompletionHandler: uses the right thread
+        [[self persistanceManager] saveDataWithCompletionHandler:^(BOOL suceeded, NSError *error) {
+            if (!suceeded) {
+                NSLog(@"Core Data save failed.");
+            }
+        }];
+    }];
+}
 
 #pragma mark - Table view data source
 

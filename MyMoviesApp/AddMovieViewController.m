@@ -118,9 +118,10 @@
             [self cancel:nil];
             break;
         case 1:
+            self.movieTitle.text = self.findMovie.text;
+            [self.releaseYear becomeFirstResponder];
             [self.form setHidden:NO];
             break;
-            
         default:
             break;
     }
@@ -138,7 +139,7 @@
     
     NSMutableArray *actors = [[NSMutableArray alloc] init];
     
-    NSArray *actorsArray = [self.castTextView.text componentsSeparatedByCharactersInSet:[NSCharacterSet punctuationCharacterSet]];
+    NSArray *actorsArray = [self.castTextView.text componentsSeparatedByString:@", "];
     
     for (NSString* actor in actorsArray) {
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Actor"
@@ -151,7 +152,7 @@
         [actors addObject:newActor];
     }
     
-    newMovie.actors = [NSSet setWithArray:actors];
+    newMovie.actors = [NSOrderedSet orderedSetWithArray:actors];
     
     [[self persistanceManager] saveDataWithCompletionHandler:^(BOOL suceeded, NSError *error) {
         if (!suceeded) {

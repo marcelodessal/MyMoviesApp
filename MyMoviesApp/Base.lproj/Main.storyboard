@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pzO-8G-e4C">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -41,6 +42,18 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Z5-1x-cAX">
+                                        <rect key="frame" x="68" y="76" width="461" height="55"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="yFQ-lB-ept"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="90g-SH-Mqw"/>
+                                        </connections>
+                                    </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lE6-sp-mJZ">
                                         <rect key="frame" x="0.0" y="42" width="60" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -60,18 +73,6 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Z5-1x-cAX">
-                                        <rect key="frame" x="68" y="76" width="461" height="55"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="yFQ-lB-ept"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="90g-SH-Mqw"/>
-                                        </connections>
-                                    </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plot:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPP-7x-sFr">
                                         <rect key="frame" x="0.0" y="145" width="60" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -258,63 +259,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vT-Qd-mdY">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title (year)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbV-eW-DIe">
+                                <rect key="frame" x="150" y="72" width="300" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="kCG-eO-zhp"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Movie Detail" id="Xt7-u6-yLj">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="GSH-aY-AUf">
-                                            <connections>
-                                                <action selector="done:" destination="Yp8-r5-DKn" id="Hht-OM-uJU"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title (year)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbV-eW-DIe">
-                                <rect key="frame" x="150" y="104" width="300" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="U2f-Jw-tok"/>
-                                    <constraint firstAttribute="height" constant="38" id="xxQ-vr-eyV"/>
+                                    <constraint firstAttribute="width" constant="300" id="1Xq-6N-yXx"/>
+                                    <constraint firstAttribute="height" constant="60" id="ayW-ou-Ace"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDR-yG-bAc">
-                                <rect key="frame" x="150" y="174" width="300" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="CYp-jF-dQ4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xek-8e-UWQ">
-                                <rect key="frame" x="150" y="236" width="300" height="344"/>
+                                <rect key="frame" x="150" y="208" width="300" height="372"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4Q-Gu-DgY">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="9tR-4I-9L4"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Movie Detail" id="YGe-Ed-xNt">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="C0V-ea-MZo">
+                                            <connections>
+                                                <action selector="done:" destination="Yp8-r5-DKn" id="RFd-N0-Vqo"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDR-yG-bAc">
+                                <rect key="frame" x="150" y="140" width="300" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="hwb-0u-KMg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JDR-yG-bAc" firstAttribute="centerX" secondItem="IbV-eW-DIe" secondAttribute="centerX" id="6qk-CX-fZW"/>
-                            <constraint firstItem="JDR-yG-bAc" firstAttribute="centerX" secondItem="xek-8e-UWQ" secondAttribute="centerX" id="HuV-cJ-QYV"/>
-                            <constraint firstItem="JDR-yG-bAc" firstAttribute="width" secondItem="xek-8e-UWQ" secondAttribute="width" id="SUk-e6-iy6"/>
+                            <constraint firstItem="IbV-eW-DIe" firstAttribute="top" secondItem="u4Q-Gu-DgY" secondAttribute="bottom" constant="8" id="0TV-iQ-sZS"/>
+                            <constraint firstItem="IbV-eW-DIe" firstAttribute="width" secondItem="JDR-yG-bAc" secondAttribute="width" id="75E-Rr-PHu"/>
+                            <constraint firstAttribute="centerX" secondItem="IbV-eW-DIe" secondAttribute="centerX" id="Kps-dl-QIE"/>
+                            <constraint firstItem="u4Q-Gu-DgY" firstAttribute="top" secondItem="jKo-VH-N3W" secondAttribute="bottom" id="N3a-EG-Sht"/>
+                            <constraint firstItem="xek-8e-UWQ" firstAttribute="top" secondItem="JDR-yG-bAc" secondAttribute="bottom" constant="8" id="OqI-sj-Qeo"/>
+                            <constraint firstItem="u4Q-Gu-DgY" firstAttribute="leading" secondItem="5qj-Y5-uOY" secondAttribute="leading" id="Pur-xb-Snq"/>
+                            <constraint firstItem="NTI-zf-qhX" firstAttribute="top" secondItem="xek-8e-UWQ" secondAttribute="bottom" constant="20" id="V3X-J6-1dj"/>
                             <constraint firstItem="JDR-yG-bAc" firstAttribute="centerY" secondItem="xek-8e-UWQ" secondAttribute="centerY" constant="-212" id="WZt-lP-8XZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2vT-Qd-mdY" secondAttribute="trailing" constant="-16" id="Wv0-Kg-x2y"/>
-                            <constraint firstItem="2vT-Qd-mdY" firstAttribute="top" secondItem="jKo-VH-N3W" secondAttribute="bottom" id="Y04-6q-lNB"/>
-                            <constraint firstItem="NTI-zf-qhX" firstAttribute="top" secondItem="xek-8e-UWQ" secondAttribute="bottom" constant="20" id="Zb1-RE-RIl"/>
-                            <constraint firstItem="JDR-yG-bAc" firstAttribute="width" secondItem="IbV-eW-DIe" secondAttribute="width" id="fIu-og-PWZ"/>
-                            <constraint firstItem="2vT-Qd-mdY" firstAttribute="leading" secondItem="5qj-Y5-uOY" secondAttribute="leadingMargin" constant="-16" id="hvQ-Dg-NvQ"/>
-                            <constraint firstItem="JDR-yG-bAc" firstAttribute="top" secondItem="IbV-eW-DIe" secondAttribute="bottom" constant="32" id="s3Y-rk-Cjm"/>
-                            <constraint firstAttribute="centerX" secondItem="IbV-eW-DIe" secondAttribute="centerX" id="sAz-Ld-bhW"/>
-                            <constraint firstItem="xek-8e-UWQ" firstAttribute="top" secondItem="JDR-yG-bAc" secondAttribute="bottom" constant="18" id="to6-il-5bq"/>
-                            <constraint firstItem="IbV-eW-DIe" firstAttribute="top" secondItem="jKo-VH-N3W" secondAttribute="bottom" constant="84" id="z3Y-ua-6wW"/>
+                            <constraint firstAttribute="trailing" secondItem="u4Q-Gu-DgY" secondAttribute="trailing" id="bcx-0D-VEg"/>
+                            <constraint firstItem="IbV-eW-DIe" firstAttribute="centerX" secondItem="JDR-yG-bAc" secondAttribute="centerX" id="jF5-fO-1Hp"/>
+                            <constraint firstItem="xek-8e-UWQ" firstAttribute="width" secondItem="JDR-yG-bAc" secondAttribute="width" id="jmw-WJ-PVG"/>
+                            <constraint firstItem="xek-8e-UWQ" firstAttribute="centerX" secondItem="JDR-yG-bAc" secondAttribute="centerX" id="m5z-4K-eMl"/>
+                            <constraint firstItem="JDR-yG-bAc" firstAttribute="top" secondItem="IbV-eW-DIe" secondAttribute="bottom" constant="8" id="sIg-TW-Ej0"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

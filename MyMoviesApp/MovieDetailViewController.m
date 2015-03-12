@@ -7,7 +7,6 @@
 //
 
 #import "MovieDetailViewController.h"
-#import "Actor.h"
 
 @interface MovieDetailViewController ()
 

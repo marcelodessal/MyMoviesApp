@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Movie.h"
+#import "Actor.h"
 
 @interface MovieDetailViewController : UIViewController
 

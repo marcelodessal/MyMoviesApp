@@ -22,7 +22,7 @@ NSString* const kBaseURLString = @"http://www.omdbapi.com";
         
         // Session configuration setup
         NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        sessionConfiguration.timeoutIntervalForRequest = 10.0f;
+        sessionConfiguration.timeoutIntervalForRequest = 5.0f;
         
         // Initialize the session
         NSURL *baseURL = [NSURL URLWithString:kBaseURLString];
