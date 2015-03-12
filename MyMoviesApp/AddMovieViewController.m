@@ -10,6 +10,7 @@
 #import "NetworkManager.h"
 #import "Movie.h"
 #import "Actor.h"
+#import "UITextView+Border.h"
 
 @interface AddMovieViewController ()
 
@@ -21,8 +22,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *plotTextView;
 @property (weak, nonatomic) IBOutlet UIButton *resetBtn;
 
-@property (strong, nonatomic) NSArray *actors;
-
 @end
 
 @implementation AddMovieViewController
@@ -30,7 +29,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     [self reset:nil];
+    [self.castTextView setCustomBorder];
+    [self.plotTextView setCustomBorder];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,7 +65,7 @@
 
 - (IBAction)save:(UIBarButtonItem *)sender {
     
-    
+    [self addMovie];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -94,6 +97,41 @@
         [weakSelf.form setHidden:YES];
     };
 }
+
+
+#pragma mark - Core data
+
+- (void)addMovie {
+    Movie *newMovie = [[Movie alloc] initWithEntity:[NSEntityDescription entityForName:@"Movie" inManagedObjectContext:[[self persistanceManager] mainThreadManagedObjectContext]] insertIntoManagedObjectContext:[[self persistanceManager] mainThreadManagedObjectContext]];
+    
+    newMovie.movieTitle = self.movieTitle.text;
+    newMovie.releaseYear = [NSNumber numberWithInt:[self.releaseYear.text intValue]];
+    newMovie.plot = self.plotTextView.text;
+    
+    NSMutableArray *actors = [[NSMutableArray alloc] init];
+    
+    NSArray *actorsArray = [self.castTextView.text componentsSeparatedByCharactersInSet:[NSCharacterSet punctuationCharacterSet]];
+    
+    for (NSString* actor in actorsArray) {
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Actor"
+                                                  inManagedObjectContext:[[self persistanceManager] mainThreadManagedObjectContext]];
+        
+        Actor *newActor = [[Actor alloc] initWithEntity:entity
+                         insertIntoManagedObjectContext:[[self persistanceManager] mainThreadManagedObjectContext]];
+        
+        newActor.name = actor;
+        [actors addObject:newActor];
+    }
+    
+    newMovie.actors = [NSSet setWithArray:actors];
+    
+    [[self persistanceManager] saveDataWithCompletionHandler:^(BOOL suceeded, NSError *error) {
+        if (!suceeded) {
+            NSLog(@"Core Data save failed.");
+        }
+    }];
+}
+
 
 /*
 #pragma mark - Navigation

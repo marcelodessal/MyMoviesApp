@@ -47,7 +47,6 @@
     [self setPersistanceManager:[[PersistanceManager alloc] init]];
     [[self persistanceManager] setupCoreDataStackWithCompletionHandler:^(BOOL suceeded, NSError *error) {
         if (suceeded) {
-            [[[self navigationItem] leftBarButtonItem] setEnabled:YES];
             [[[self navigationItem] rightBarButtonItem] setEnabled:YES];
             [self fetchedResultsController];
         } else {
@@ -82,8 +81,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     }
 
-    cell.textLabel.text = [object valueForKey:@"title"];
-    cell.detailTextLabel.text = [object valueForKey:@"year"];
+    cell.textLabel.text = [object valueForKey:@"movieTitle"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"releaseYear"]];
         
     return cell;
 }
@@ -168,8 +167,8 @@
         {
             UITableViewCell *cell = [[self tableView] cellForRowAtIndexPath:indexPath];
             NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-            [[cell textLabel] setText:[object valueForKey:@"title"]];
-            [[cell detailTextLabel] setText:[object valueForKey:@"year"]];
+            [[cell textLabel] setText:[object valueForKey:@"movieTitle"]];
+            [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%@",[object valueForKey:@"releaseYear"]]];
             break;
         }
         case NSFetchedResultsChangeMove:
@@ -189,12 +188,17 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
-    if ([segue.identifier isEqualToString:@"addMovie"]) {
-        AddMovieViewController *controller = [segue destinationViewController];
-    } else if ([segue.identifier isEqualToString:@"movieDetail"]) {
-        MovieDetailViewController *controller = [segue destinationViewController];
-    }
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"addMovie"]) {
+        
+        UINavigationController *navController = [segue destinationViewController];
+        AddMovieViewController *controller = (AddMovieViewController*)[navController topViewController];
+        controller.persistanceManager = [self persistanceManager];
+        
+    } else if ([segue.identifier isEqualToString:@"movieDetail"]) {
+        
+//        MovieDetailViewController *controller = [segue destinationViewController];
+    }
     
 }
 

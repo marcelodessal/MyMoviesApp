@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A032BC51AAF6058003C2E0A /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A032BC41AAF6058003C2E0A /* Movie.m */; };
-		3A032BC81AAF6058003C2E0A /* Actor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A032BC71AAF6058003C2E0A /* Actor.m */; };
 		3A4689D91AAE5AE300340F10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4689D81AAE5AE300340F10 /* main.m */; };
 		3A4689DC1AAE5AE300340F10 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4689DB1AAE5AE300340F10 /* AppDelegate.m */; };
 		3A4689DF1AAE5AE300340F10 /* MyMoviesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A4689DD1AAE5AE300340F10 /* MyMoviesApp.xcdatamodeld */; };
@@ -21,6 +19,9 @@
 		3AD473781AAFD39500CF1E67 /* MyMoviesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD473771AAFD39500CF1E67 /* MyMoviesTableViewController.m */; };
 		3AD4737B1AAFD3E500CF1E67 /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4737A1AAFD3E500CF1E67 /* MovieDetailViewController.m */; };
 		3AD473801AB078A300CF1E67 /* PersistanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4737F1AB078A300CF1E67 /* PersistanceManager.m */; };
+		3AD473891AB0EC4D00CF1E67 /* UITextView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD473881AB0EC4D00CF1E67 /* UITextView+Border.m */; };
+		3AD4738C1AB112E700CF1E67 /* Actor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4738B1AB112E700CF1E67 /* Actor.m */; };
+		3AD4738F1AB112E700CF1E67 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4738E1AB112E700CF1E67 /* Movie.m */; };
 		9F4F78B993901D6E35B4E0C5 /* libPods-MyMoviesApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0A5CC9C399576A7F69FF35 /* libPods-MyMoviesApp.a */; };
 /* End PBXBuildFile section */
 
@@ -36,10 +37,6 @@
 
 /* Begin PBXFileReference section */
 		0C0A5CC9C399576A7F69FF35 /* libPods-MyMoviesApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyMoviesApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A032BC31AAF6058003C2E0A /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
-		3A032BC41AAF6058003C2E0A /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
-		3A032BC61AAF6058003C2E0A /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
-		3A032BC71AAF6058003C2E0A /* Actor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actor.m; sourceTree = "<group>"; };
 		3A4689D31AAE5AE300340F10 /* MyMoviesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMoviesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4689D71AAE5AE300340F10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A4689D81AAE5AE300340F10 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -62,6 +59,12 @@
 		3AD4737A1AAFD3E500CF1E67 /* MovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailViewController.m; sourceTree = "<group>"; };
 		3AD4737E1AB078A300CF1E67 /* PersistanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistanceManager.h; sourceTree = "<group>"; };
 		3AD4737F1AB078A300CF1E67 /* PersistanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistanceManager.m; sourceTree = "<group>"; };
+		3AD473871AB0EC4D00CF1E67 /* UITextView+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Border.h"; sourceTree = "<group>"; };
+		3AD473881AB0EC4D00CF1E67 /* UITextView+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Border.m"; sourceTree = "<group>"; };
+		3AD4738A1AB112E700CF1E67 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
+		3AD4738B1AB112E700CF1E67 /* Actor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actor.m; sourceTree = "<group>"; };
+		3AD4738D1AB112E700CF1E67 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		3AD4738E1AB112E700CF1E67 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		CD5987AB2A69E046E3AB8818 /* Pods-MyMoviesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMoviesApp/Pods-MyMoviesApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F9BFB3BDF8025E80947E5025 /* Pods-MyMoviesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoviesApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMoviesApp/Pods-MyMoviesApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +137,8 @@
 				3A4689E81AAE5AE300340F10 /* LaunchScreen.xib */,
 				3A4689DD1AAE5AE300340F10 /* MyMoviesApp.xcdatamodeld */,
 				3A4689D61AAE5AE300340F10 /* Supporting Files */,
+				3AD473871AB0EC4D00CF1E67 /* UITextView+Border.h */,
+				3AD473881AB0EC4D00CF1E67 /* UITextView+Border.m */,
 			);
 			path = MyMoviesApp;
 			sourceTree = "<group>";
@@ -167,10 +172,10 @@
 		3A468A0B1AAF0D1200340F10 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3A032BC61AAF6058003C2E0A /* Actor.h */,
-				3A032BC71AAF6058003C2E0A /* Actor.m */,
-				3A032BC31AAF6058003C2E0A /* Movie.h */,
-				3A032BC41AAF6058003C2E0A /* Movie.m */,
+				3AD4738D1AB112E700CF1E67 /* Movie.h */,
+				3AD4738E1AB112E700CF1E67 /* Movie.m */,
+				3AD4738A1AB112E700CF1E67 /* Actor.h */,
+				3AD4738B1AB112E700CF1E67 /* Actor.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -319,16 +324,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AD4738F1AB112E700CF1E67 /* Movie.m in Sources */,
 				3AD473781AAFD39500CF1E67 /* MyMoviesTableViewController.m in Sources */,
-				3A032BC51AAF6058003C2E0A /* Movie.m in Sources */,
+				3AD4738C1AB112E700CF1E67 /* Actor.m in Sources */,
 				3A4689DC1AAE5AE300340F10 /* AppDelegate.m in Sources */,
 				3A4689DF1AAE5AE300340F10 /* MyMoviesApp.xcdatamodeld in Sources */,
 				3A4689D91AAE5AE300340F10 /* main.m in Sources */,
 				3AD473801AB078A300CF1E67 /* PersistanceManager.m in Sources */,
 				3A468A041AAE82C200340F10 /* NetworkManager.m in Sources */,
 				3AD4737B1AAFD3E500CF1E67 /* MovieDetailViewController.m in Sources */,
-				3A032BC81AAF6058003C2E0A /* Actor.m in Sources */,
 				3A468A011AAE5EEC00340F10 /* AddMovieViewController.m in Sources */,
+				3AD473891AB0EC4D00CF1E67 /* UITextView+Border.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

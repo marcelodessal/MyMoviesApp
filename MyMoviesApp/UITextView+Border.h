@@ -1,18 +1,15 @@
 //
-//  Actor.m
+//  UITextView+Border.h
 //  MyMoviesApp
 //
 //  Created by Marcelo Dessal on 3/11/15.
 //  Copyright (c) 2015 Marcelo Dessal. All rights reserved.
 //
 
-#import "Actor.h"
-#import "Movie.h"
+#import <UIKit/UIKit.h>
 
+@interface UITextView (Border)
 
-@implementation Actor
-
-@dynamic name;
-@dynamic movie;
+- (void)setCustomBorder;
 
 @end
