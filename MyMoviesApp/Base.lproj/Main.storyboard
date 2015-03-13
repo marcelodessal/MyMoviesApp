@@ -236,12 +236,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Movies" id="Uz1-WK-uWW">
+                        <barButtonItem key="leftBarButtonItem" title="++" id="M7N-k6-GE3">
+                            <connections>
+                                <action selector="addMovies:" destination="f8h-zv-SiT" id="VO6-nV-eb1"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="wVb-E7-Lp3">
                             <connections>
                                 <segue destination="YBw-Tz-AWR" kind="presentation" identifier="addMovie" id="GmM-MB-loI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addMovieBtn" destination="wVb-E7-Lp3" id="xZL-y1-8uT"/>
+                        <outlet property="addMoviesBtn" destination="M7N-k6-GE3" id="bnZ-us-loI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T5T-Bd-oMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

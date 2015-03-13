@@ -15,6 +15,8 @@
 
 @property (strong, nonatomic) PersistanceManager *persistanceManager;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addMoviesBtn;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addMovieBtn;
 
 @end
 
@@ -44,13 +46,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.addMovieBtn setEnabled:NO];
+    [self.addMoviesBtn setEnabled:NO];
+    
     [self setPersistanceManager:[[PersistanceManager alloc] init]];
     [[self persistanceManager] setupCoreDataStackWithCompletionHandler:^(BOOL suceeded, NSError *error) {
         if (suceeded) {
-            [[[self navigationItem] rightBarButtonItem] setEnabled:YES];
-    //        [self addMovies];
+            [self.addMovieBtn setEnabled:YES];
+            [self.addMoviesBtn setEnabled:YES];
+
             [self fetchedResultsController];
-//            [self.tableView reloadData];
         } else {
             NSLog(@"Core Data stack setup failed.");
         }
@@ -63,10 +68,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark - Private methods
 
-- (void)addMovies {
+- (IBAction)addMovies:(id)sender {
     NSManagedObjectContext *batchAddContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
     [batchAddContext setParentContext:[[self persistanceManager] mainThreadManagedObjectContext]];
     [batchAddContext performBlock:^{
